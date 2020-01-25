@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/m.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Reactive Error</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="layer">
+    <div class="bottom-grid">
+            <div class="logo">
+                <h1> <a href="index.html">Reactive Error</a></h1>
+            </div>
+            <div class="links">
+                <ul class="links-unordered-list">
+                    <li class="">
+                        <a href="{{ url_for('nodes') }}" class="">Nodes</a>
+                    </li>
+                    <li class="active">
+                            <a href="{{ url_for('scan') }}" class="">Scan</a>
+                        </li>
+    
+                    <li class="">
+                        <a href="{{ url_for('add_node') }}" class="">Create Node</a>
+                    </li>
+                    <li class="">
+                        <a href="{{ url_for('add_batch') }}" class="">Create Batch</a>
+                    </li>
+                    <li class="">
+                        <a href="{{ url_for('logout') }}" class="">Logout</a>
+                    </li>
+    
+                </ul>
+            </div>
+        </div>
+        <div class="container" id="classify">
+                <div class="row">
+                        <div class="col-12 col-md-6">
+                            <br>
+                            <h3>Upload QR Code to fetch information</h3>
+                            <br>
+                            <form action="{{url_for('qr')}}" method="POST" enctype="multipart/form-data">
+                                <input id="browse" type="file" name="file" accept="image/png" />
+                                <br>
+                                <br>
+                                <button class="btn btn-dark" type="submit">Analyze</button>
+                                <br>
+                            </form>
+                            <br>
+                        </div>
+                </div>
+        </div>
+        </div>
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+

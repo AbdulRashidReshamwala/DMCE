@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/m.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Reactive Error</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="layer">
+    <div class="bottom-grid">
+            <div class="logo">
+                <h1> <a href="index.html">Reactive Error</a></h1>
+            </div>
+            <div class="links">
+                <ul class="links-unordered-list">
+                    <li class="">
+                        <a href="{{ url_for('nodes') }}" class="">Nodes</a>
+                    </li>
+    
+                    <li class="">
+                        <a href="{{ url_for('add_node') }}" class="">Create Node</a>
+                    </li>
+                    <li class="">
+                        <a href="{{ url_for('add_batch') }}" class="">Create Batch</a>
+                    </li>
+                    <li class="">
+                        <a href="{{ url_for('logout') }}" class="">Logout</a>
+                    </li>
+    
+                </ul>
+            </div>
+        </div>
+
+
+    <div class="container" id="paper">
+
+
+        <form action="{{url_for('addNode')}}" method="POST" style="border:1px solid #ccc">
+            <div class="container">
+                <h3 id="sp">Create Node</h3>
+
+                <label><b>Name</b></label>
+                <input type="text" placeholder="Enter Name" name="name" required>
+
+                <label><b>Level</b></label>
+                <input type="text" placeholder="Enter Level" name="level" required>
+
+
+                <label><b>Latitude</b></label>
+                <input type="text" placeholder="Enter Latitude" name="lat" required>
+
+                <label><b>Longitude</b></label>
+                <input type="text" placeholder="Enter Longitude" name="lon" required>
+
+                <label><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+
+
+
+
+                <div class="clearfix" id="but">
+
+                    <button type="submit" class="signupbtn">Create Node</button>
+
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+</div>
+
+</body>
+
+
+
+
+
+
+
+
+</html>

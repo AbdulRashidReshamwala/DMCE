@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="jquery.roadmap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/m.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+    <title>Reactive Error</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="layer">
+            <div class="bottom-grid">
+                    <div class="logo">
+                        <h1> <a href="index.html">Reactive Error</a></h1>
+                    </div>
+                    <div class="links">
+                        <ul class="links-unordered-list">
+                            <li class="">
+                                <a href="{{ url_for('nodes') }}" class="">Dashboard</a>
+                            </li>
+            
+                            <li class="">
+                                <a href="{{ url_for('add_node') }}" class="">Create Node</a>
+                            </li>
+                            <li class="">
+                                <a href="{{ url_for('add_batch') }}" class="">Create Batch</a>
+                            </li>
+                            <li class="">
+                                <a href="{{ url_for('logout') }}" class="">Logout</a>
+                            </li>
+            
+                        </ul>
+                    </div>
+                </div>
+            
+                <!-- map and batch -->
+                <div class="container" id="mapBatch">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12">
+                            <div id="batch">
+                                <h1 id="nff"> Node Information</h1>
+                                <div class="card">
+            
+                                    <div class="card-body">
+                                        <h1 id="nf">Name: {{node.name}}</h1>
+                                        <h1 id="nf">Address: {{node.address}}/h1>
+                                        <h1 id="nf"> Batches: <a href="/batch/node/{{node.address}}">{{node.no_batches}}</a></h1>
+                                        <h1 id="nf">Lattitude: {{node.location['lat']}}</h1>
+                                        <h1 id="nf">Longitude: {{node.location['lon']}}</h1>
+                                    </div>
+            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <div id="map"></div>
+                        </div>
+            
+                    </div>
+                </div>
+            
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 3
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 4 crossorigin="anonymous">
+            5
+        </script>
+
+    <script src="/static/js/jquery.roadmap.min.js" type="text/javascript"></script>
+</body>
+
+
+
+
+
+
+
+<script>
+    function initMap() {
+
+        var loc = { lat: {{node.location['lat']}}, lng: {{node.location['lon']}} };
+        var map = new google.maps.Map(
+            document.getElementById('map'), { zoom: 13, center: loc });
+        var marker = new google.maps.Marker({
+            position: loc,
+            map: map
+        });
+    }</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByeXkaZONZTHxJK1C0Pn3CIvh9dUeTju0&callback=initMap">
+    </script>
+
+
+
+</html>
